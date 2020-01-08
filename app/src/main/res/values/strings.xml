@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">RequestTest</string>
+
+
+
+
+    <!-- Filters for lenten and vegan products -->
+    <string name="lentenFlag">Samo posne proizvode</string>
+    <string name="veganFlag">Samo veganske proizvode</string>
+    <string name="vegeterianFlag">Samo vegetarijanski proizvodi</string>
+
+    <!-- Tolerance flags switch strings -->
+    <string name="milkTolerance">Uracunaj proizvode sa mlekom</string>
+    <string name="peanutsTolerance">Uracunaj proizvode sa kikirikijem</string>
+    <string name="eggsTolerance">Uracunaj proizvode sa jajima</string>
+    <string name="nutsTolerance">Uracunaj proizvode sa lesnicima</string>
+    <string name="fishTolerance">Uracunaj proizvode sa ribom</string>
+    <string name="wheatTolerance">Uracunaj proizvode sa psenicom</string>
+    <string name="soyTolerance">Uracunaj proizvode sa sojom</string>
+
+</resources>
