@@ -2,8 +2,6 @@
     <string name="app_name">RequestTest</string>
 
 
-
-
     <!-- Filters for lenten and vegan products -->
     <string name="lentenFlag">Samo posne proizvode</string>
     <string name="veganFlag">Samo veganske proizvode</string>

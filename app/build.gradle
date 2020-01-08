@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.example.requesttest"
         minSdkVersion 15
         targetSdkVersion 29

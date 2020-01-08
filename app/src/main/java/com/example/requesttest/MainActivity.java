@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.service.voice.VoiceInteractionService;
 import android.util.Log;
 import android.view.View;
+import android.content.Intent;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,45 +24,49 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-    RequestQueue requestQueue= Volley.newRequestQueue(this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-
+        final RequestQueue requestQueue= Volley.newRequestQueue(this);
         //making main request Queue
 
-
         //URL variable that is going to be used in creating new requests
-
-
 
         final EditText loginUsername = findViewById(R.id.loginUsername);
         final EditText loginPassword = findViewById(R.id.loginPassword);
         final TextView loginStatus = findViewById(R.id.loginStatus);
 
-
         final Button loginButton = findViewById(R.id.loginButton);
+        final Button registerButton = findViewById(R.id.registerButton);
 
-        loginButton.setOnClickListener( new View.OnClickListener() {
-                    public void onClick(View view)
-                    {
-                        loginFunction(loginUsername,loginPassword,loginStatus);
-                    }
-                }
+        registerButton.setOnClickListener( new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       registerFunction();
+                   }
+               }
         );
 
 
-
-
-
-
+        loginButton.setOnClickListener( new View.OnClickListener() {
+                    public void onClick(View view) {
+                        loginFunction(loginUsername,loginPassword,loginStatus,requestQueue);
+                    }
+                }
+        );
     }
 
+    private void registerFunction()
+    {
+        startActivity(new Intent(MainActivity.this, RegisterScreen.class));
+    }
 
-    private void loginFunction(EditText loginUsername, EditText loginPassword, TextView loginStatus) {
+    private void loginFunction(EditText loginUsername, EditText loginPassword, TextView loginStatus,RequestQueue requestQueue) {
 
         String URL = "https://postman-echo.com/get?foo1=bar1&foo2=bar2";
 
@@ -86,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         );
         requestQueue.add(objectRequest);
 
-
-        loginStatus.setText("trying to login as Username: " + loginUsername.getText().toString() + " and Password: " + loginPassword.getText().toString());
+        loginStatus.setText("Debug: clicked button");
+        //loginStatus.setText("trying to login as Username: " + loginUsername.getText().toString() + " and Password: " + loginPassword.getText().toString());
     }
 }

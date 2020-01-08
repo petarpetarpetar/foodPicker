@@ -9,16 +9,14 @@
 
     <TextView
         android:id="@+id/loginStatus"
-        android:layout_width="0dp"
+        android:layout_width="409dp"
         android:layout_height="18dp"
         android:gravity="center"
-        android:text="test!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Unesite ime i lozinku naloga"
+        app:layout_constraintBottom_toTopOf="@+id/loginUsername"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/loginPassword"
@@ -31,13 +29,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUsername"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.124" />
 
     <EditText
         android:id="@+id/loginUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="324dp"
+        android:editable="false"
+        android:ellipsize="start"
         android:ems="10"
         android:hint="Ime"
         android:inputType="textPersonName"
@@ -48,16 +48,48 @@
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="21dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedbutton"
+        android:ellipsize="start"
+
         android:text="Prijavi se"
-        app:layout_constraintBottom_toTopOf="@+id/loginStatus"
+        android:textColor="#D40000"
+
+        android:textColorHint="#D40000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginPassword"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="30dp"
+        android:alpha="0.6"
+        android:background="@drawable/roundedbutton"
+        android:ellipsize="start"
+        android:text="Registruj se"
+        android:textColor="#D40000"
+        android:textColorHint="#D40000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="234dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logowithbackground" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
