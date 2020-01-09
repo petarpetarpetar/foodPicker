@@ -20,10 +20,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+
+    boolean loggedIN;
 
 
     @Override
@@ -66,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, RegisterScreen.class));
     }
 
-    private void loginFunction(EditText loginUsername, EditText loginPassword, TextView loginStatus,RequestQueue requestQueue) {
+    private void loginFunction(final EditText loginUsername, final EditText loginPassword, final TextView loginStatus,final RequestQueue requestQueue) {
 
-        String URL = "https://postman-echo.com/get?foo1=bar1&foo2=bar2";
+        String URL = "https://foodpicker-api-deploy.herokuapp.com/users/1";
+
+
 
         JsonObjectRequest objectRequest=new JsonObjectRequest(
                 Request.Method.GET,
@@ -78,8 +83,32 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.e("Rest Response", response.toString());
+
+                        try {
+                            String responsePassword = response.getString("password");
+                            Log.e("checking pw", responsePassword + " " + loginPassword.getText().toString());
+                            if(!(responsePassword == loginPassword.getText().toString()))
+                            {
+                                loggedIN = true;
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        if(loggedIN) {
+                            loginStatus.setText("logged IN!");
+                            startActivity(new Intent(MainActivity.this, RegisterScreen.class));
+
+                        }
+                        else {
+                            loginStatus.setText("Wrong password");
+                        }
+
                     }
                 },
+
                 new Response.ErrorListener() {
 
                     public void onErrorResponse(VolleyError error)
@@ -89,9 +118,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
         );
+
+
+
         requestQueue.add(objectRequest);
 
-        loginStatus.setText("Debug: clicked button");
+
         //loginStatus.setText("trying to login as Username: " + loginUsername.getText().toString() + " and Password: " + loginPassword.getText().toString());
     }
 }
