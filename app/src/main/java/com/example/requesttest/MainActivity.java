@@ -87,8 +87,10 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             String responsePassword = response.getString("password");
                             Log.e("checking pw", responsePassword + " " + loginPassword.getText().toString());
-                            if(!(responsePassword == loginPassword.getText().toString()))
+
+                            if(responsePassword.equals(loginPassword.getText().toString()))
                             {
+                                Log.e("password part", "login successful");
                                 loggedIN = true;
                             }
 
