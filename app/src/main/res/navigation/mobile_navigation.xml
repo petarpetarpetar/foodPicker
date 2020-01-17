@@ -10,16 +10,15 @@
         android:name="com.example.requesttest.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.requesttest.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/navigation_search"
+        android:name="com.example.requesttest.SearchFragment"
+        android:label="fragment_navigation_search"
+        tools:layout="@layout/fragment_navigation_search" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.requesttest.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_account"
+        android:name="com.example.requesttest.AccountFragment"
+        android:label="fragment_navigation_account"
+        tools:layout="@layout/fragment_navigation_account" />
+
 </navigation>

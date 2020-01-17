@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashActivity"></activity>
         <activity
             android:name=".BarcodeScannerActivity"
-            android:label="@string/title_activity_barcode_scanner"></activity>
+            android:label="@string/title_activity_barcode_scanner" />
         <activity android:name=".RegisterScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
     </application>
 
 </manifest>
